@@ -3,10 +3,13 @@ import Card from "./Card";
 import axios from "axios";
 const Main=()=>{
     const [search,setSearch]=useState("");
+    const [bookData,setData]=useState ([]);
     const searchBook=(evt)=>{
         if(evt.key==="Enter")
             {
-                console.log("Hi!");
+                axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyDXKSqXHdHvcgGu7bDa7i_EH8AEa6Hvc5g' + '&maxResults=40')
+                .then(res=>setData(res.data.items)) 
+                .catch(err=>console.log(err)) 
             }
     }
     return(
@@ -27,16 +30,9 @@ const Main=()=>{
                 </div>
             </div>
             <div className="container">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/> 
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+                {
+                    <Card book={bookData}/> 
+                } 
             </div>
         </>
 
