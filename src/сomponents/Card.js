@@ -1,33 +1,35 @@
-import React from "react";
-import { useState } from "react/cjs/react.development";
+import React, {useState} from "react";
 import Modal from "./Modal";
-const Card=({book})=>{
-    
+const Card = ({ book }) => {
+
     const [show,setShow]=useState(false);
     const [bookItem,setItem]=useState();
-    return(
+    console.log(book)
+    return (
         <>
             {
-                book.map((item)=>{
+                book.map((item) => {
                     let thumbnail=item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
                     let amount=item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
-                    if(thumbnail!=undefined && amount !=undefined)
-                        {
-                            return(
-                                <>
-                                <div className="card" onClick={()=>{setShow(true), setItem(item)}}>
-                                    <img src={thumbnail} alt="" />
-                                    <div className="bottom">
-                                        <h3 className="title">{item.volumeInfo.title}</h3> 
-                                        <p className="amount">&#8377;{amount}</p> 
-                                    </div>
+                    if(thumbnail !== undefined && amount !== undefined)
+                    {
+                        return (
+                            <>
+                            <div className="card" onClick={()=>{setShow(true);setItem(item)}}>
+                                <img src={thumbnail} alt="" />
+                                <div className="bottom">
+                                    <h3 className="title">{item.volumeInfo.title}</h3>
+                                    <p className="amount">&#8377;{amount}</p>
                                 </div>
-                                    <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/>
-                                </>
-                            ) 
-                        } 
+                            </div>
+                              <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/>
+                            </>
+                        )
+                    }
+                    return null;
                 })
             }
+
         </>
     )
 }
