@@ -22,10 +22,10 @@ const Main=()=>{
         <>
             <div className="header">
                 <div className="row1">
-                    <h1>A room without books is like<br> a body without a soul.</br></h1>
+                    <h1>Enjoy every moment.</h1>
                 </div>    
                 <div className="row2">
-                    <h2>Find your book</h2>
+                    <h2>Search your book</h2>
                     <div className="search">
                         <input type="text" placeholder="Enter Your Book Name"
                         value={search} onChange={e=>setSearch(e.target.value)}
