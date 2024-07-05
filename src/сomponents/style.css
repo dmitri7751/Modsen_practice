@@ -100,7 +100,7 @@ header::before{
     background-color: rgba(255,255,255,0.8);
 }
 .card img{
-    width: 100%;
+    width: 15%;
     height: 200px;
     border-radius: 1 rem 1 rem 0 0;
 }
@@ -186,5 +186,5 @@ header::before{
     margin-top: 2rem;
     text-align: justify;
     font-size: 13px;
-    
+
 }
